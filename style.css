@@ -58,6 +58,7 @@ html, body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 5%;
+  width: max-content;
 }
 .loader__bar {
   width: 100%;
