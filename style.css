@@ -99,3 +99,31 @@ html, body {
     background-position: 0% 50%;
   }
 }
+
+@media (max-width: 520px) {
+  .page {
+    gap: 1.8rem;
+    padding: 1.2rem;
+  }
+
+  .logo {
+    max-width: 320px;
+    width: 75vw;
+  }
+
+  .loader {
+    gap: 0.8rem;
+  }
+
+  .loader__label {
+    font-size: 1.55rem;
+  }
+
+  .loader__caption {
+    font-size: 1.05rem;
+  }
+
+  .loader__bar {
+    height: 18px;
+  }
+}
