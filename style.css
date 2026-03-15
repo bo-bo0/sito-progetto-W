@@ -100,7 +100,7 @@ html, body {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 1000px) {
   .page {
     gap: 1.8rem;
     padding: 1.2rem;
@@ -108,7 +108,7 @@ html, body {
 
   .logo {
     max-width: 320px;
-    width: 75vw;
+    width: 85vw;
   }
 
   .loader {
@@ -116,11 +116,11 @@ html, body {
   }
 
   .loader__label {
-    font-size: 1.55rem;
+    font-size: 1.75rem;
   }
 
   .loader__caption {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
 
   .loader__bar {
