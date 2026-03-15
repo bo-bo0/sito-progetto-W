@@ -83,11 +83,9 @@ body::after {
 }
 
 @keyframes float {
-  0%   { transform: translateY(0px)   rotate(0deg);     }
-  25%  { transform: translateY(-14px) rotate(-0.8deg);  }
-  50%  { transform: translateY(0px)   rotate(0deg);     }
-  75%  { transform: translateY(14px)  rotate(0.8deg);   }
-  100% { transform: translateY(0px)   rotate(0deg);     }
+  0%   { transform: translateY(-14px) rotate(-0.8deg); }
+  50%  { transform: translateY(14px)  rotate(0.8deg);  }
+  100% { transform: translateY(-14px) rotate(-0.8deg); }
 }
 
 @keyframes glowPulse {
@@ -232,8 +230,17 @@ body::after {
   }
 
   .logo {
-    max-width: 320px;
-    width: 85vw;
+    max-width: 260px;
+    width: 55vw;
+    height: auto;
+    filter:
+      drop-shadow(0 0 18px rgba(113, 225, 255, 0.6))
+      drop-shadow(0 0 50px rgba(161, 91, 255, 0.45))
+      drop-shadow(0 0 90px rgba(255, 95, 184, 0.25));
+    /* float: oscillazione continua senza pause al centro */
+    animation: float 6s cubic-bezier(.45,.05,.55,.95) infinite,
+              glowPulse 3s ease-in-out infinite alternate;
+    will-change: transform, filter;
   }
 
   .loader {
