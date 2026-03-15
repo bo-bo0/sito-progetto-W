@@ -53,7 +53,7 @@ html, body {
 
 .loader__caption {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: rgba(255, 255, 255, 0.75);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -121,7 +121,7 @@ html, body {
   }
 
   .loader__caption {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 
   .loader__bar {
