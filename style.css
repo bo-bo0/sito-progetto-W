@@ -222,6 +222,132 @@ body::after {
   100% { transform: scale(1.04); letter-spacing: 0.10em; }
 }
 
+/* ══════════════════════════════════════════
+   BACHECA
+══════════════════════════════════════════ */
+.board {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 92vw);
+  z-index: 100;
+  /* Pannello nascosto: solo il tab sporge di 38px */
+  --panel-height: 0px;
+  transition: --panel-height 0s; /* gestito da JS con max-height */
+}
+
+/* ── TAB / MANIGLIA ── */
+.board__handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.45rem 1.4rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0 0 14px 14px;
+  background: rgba(10, 8, 28, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(113, 225, 255, 0.22);
+  border-top: none;
+  box-shadow:
+    0 4px 24px rgba(113, 200, 255, 0.18),
+    0 0 0 1px rgba(161, 91, 255, 0.1) inset;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+.board__handle:hover {
+  background: rgba(20, 12, 45, 0.92);
+  box-shadow:
+    0 6px 32px rgba(113, 200, 255, 0.32),
+    0 0 0 1px rgba(161, 91, 255, 0.25) inset;
+}
+
+.board__handle-label {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: rgba(160, 210, 255, 0.9);
+  text-shadow: 0 0 10px rgba(113, 225, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.board__handle-arrow {
+  font-size: 1rem;
+  color: rgba(113, 225, 255, 0.8);
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(.34,1.56,.64,1);
+  line-height: 1;
+}
+
+.board--open .board__handle-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── PANNELLO ── */
+.board__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 16px 16px;
+}
+
+.board--open .board__panel {
+  max-height: 420px;
+}
+
+.board__inner {
+  padding: 1.4rem 1.6rem 1.6rem;
+  background: rgba(8, 6, 22, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(113, 225, 255, 0.15);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 12px 48px rgba(0,0,0,0.55),
+    0 0 60px rgba(113, 91, 255, 0.08) inset;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1.1rem;
+  height: 380px;
+  box-sizing: border-box;
+}
+
+.board__image-wrap {
+  min-height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(113, 225, 255, 0.14);
+  box-shadow: 0 0 24px rgba(113, 200, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board__img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.board__text {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(200, 220, 255, 0.82);
+  border-left: 2px solid rgba(113, 225, 255, 0.35);
+  padding-left: 0.85rem;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1000px) {
   .page {
@@ -237,7 +363,6 @@ body::after {
       drop-shadow(0 0 18px rgba(113, 225, 255, 0.6))
       drop-shadow(0 0 50px rgba(161, 91, 255, 0.45))
       drop-shadow(0 0 90px rgba(255, 95, 184, 0.25));
-    /* float: oscillazione continua senza pause al centro */
     animation: float 6s cubic-bezier(.45,.05,.55,.95) infinite,
               glowPulse 3s ease-in-out infinite alternate;
     will-change: transform, filter;
