@@ -376,9 +376,18 @@ body::after {
     font-size: 1.6rem;
   }
 
-  .loader__caption {
-    font-size: 0.8rem;
-  }
+.loader__caption {
+  font-size: 0.8rem;
+  max-width: 90vw;
+  width: 100%;
+  box-sizing: border-box;
+
+  text-align: center;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
   .loader__bar {
     height: 20px;
