@@ -1,4 +1,4 @@
-const progress = 30;
+const progress = 40;
 
 const label = document.querySelector('.loader__label');
 const bar = document.querySelector('.loader__bar');
